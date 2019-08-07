@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Alterar";
+}
+
+<form action="/Usuarios/Atualizar/@ViewBag.Funcionario.Id" method="post">
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationMessage("Funcionario.Nome")
+    <label for="nome">Nome: </label>
+    <input id="nome" value="@ViewBag.Funcionario.Nome" name="Nome" class="form-control" />
+
+    @Html.ValidationMessage("Funcionario.Equipe")
+    <label for="equipe">Equipe: </label>
+    <input id="equipe" value="@ViewBag.Funcionario.Equipe" name="Equipe" class="form-control" />
+
+    @Html.ValidationMessage("Funcionario.Cargo")
+    <label for="cargo">Cargo: </label>
+    <input id="cargo" value="@ViewBag.Funcionario.Cargo" name="Cargo" class="form-control" />
+
+    @Html.ValidationMessage("Funcionario.Maquina")
+    <label for="maquina">Maquina: </label>
+    <input id="maquina" value="@ViewBag.Funcionario.Maquina" name="Maquina" class="form-control" />
+
+    <input type="submit" value="Alterar" />
+
+</form>
+
+
+

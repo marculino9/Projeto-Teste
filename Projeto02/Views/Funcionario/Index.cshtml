@@ -1,0 +1,54 @@
+﻿@model IList<Projeto02.Models.Funcionario>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Funcionario do sistema.</h2>
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Equipe</th>
+            <th>Cargo</th>
+            <th>Maquina</th>
+            <th></th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var funcionario in Model)
+        {
+            using (Html.BeginForm("Visualza", "Usuarios", new { id = funcionario.Id }))
+            {
+                <tr>
+                    <td>
+
+                        @funcionario.Nome
+                    </td>
+                    <td>
+                        @funcionario.Equipe
+                    </td>
+                    <td>
+                        @funcionario.Cargo
+                    </td>
+                    <td>
+                        @funcionario.Maquina
+                    </td>
+                    <td>
+                        <a href="Funcionario/Remover/@funcionario.Id">Remover</a>
+                    </td>
+                    <td>
+                        <a href="Funcionario/Visualiza/@funcionario.Id">Visualizar</a>
+                    </td>
+                    <td>
+                        <a href="Funcionario/Alterar/@funcionario.Id">Alterar</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
